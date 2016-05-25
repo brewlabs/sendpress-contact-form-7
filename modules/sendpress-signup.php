@@ -270,7 +270,7 @@ add_action( 'wpcf7_before_send_mail', 'wpcf7_sendpress_before_send_mail' );
 
 function wpcf7_sendpress_before_send_mail( $contactform ) {
 
-	// make sure the user has sendpress (Wysija) and CF7 installed & active
+	// make sure the user has sendpress (SendPress) and CF7 installed & active
 	if( ! class_exists( 'SendPress' ) || ! class_exists( 'WPCF7_Submission' )  )
 		return;
 
@@ -356,7 +356,7 @@ function wpcf7_sendpress_subscribe_to_lists( $posted_data, $scanned_tags = array
 	$akismet = isset( $contactform->akismet ) ? (array) $contactform->akismet : null;
 	$akismet = $akismet; // temporarily, not in use!
 
-	// add the subscriber to the Wysija list
+	// add the subscriber to the SendPress list
 	SendPress_Data::subscribe_user(implode(",", $sendpress_lists), $user_data[ 'email' ], $user_data[ 'firstname' ], $user_data[ 'lastname' ]);
 }
 
